@@ -12,20 +12,10 @@
     />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Magic Notes</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -48,6 +38,7 @@
       </div>
     </nav>
 
+    <!-- Main Section  -->
     <div class="container my-3">
       <h1>Welcome to Magic Notes</h1>
       <div class="card">
@@ -55,6 +46,7 @@
           <h5 class="card-title">Add A Note</h5>
           <div class="mb-3">
             <textarea class="form-control" id="addTxt" rows="3"></textarea>
+            <span id="error"></span>
           </div>
           <button class="btn btn-primary" id="addBtn">Add Note</button>
         </div>
