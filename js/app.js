@@ -8,12 +8,19 @@ addBtn.addEventListener("click", function(e){
     let notes = localStorage.getItem("notes");
     if(notes == null){
         notesObj = [];
-    }                                          
-    else{
+    }      
+
+    if(addTxt.value != "") {
         notesObj = JSON.parse(notes);
+        notesObj.push(addTxt.value);
+        localStorage.setItem("notes", JSON.stringify(notesObj));
+        error.textContent = ""
     }
-    notesObj.push(addTxt.value);
-    localStorage.setItem("notes", JSON.stringify(notesObj));
+    else {
+        let err = document.getElementById("error");
+         err.textContent = "Please enter some data!!"
+         err.style.color ="red";
+    }
     addTxt.value = "";
     // console.log(notesObj);
     showNotes();
@@ -50,8 +57,8 @@ function showNotes(){
 }
 
 //Function To Delete Notes
-
 function deleteNote(index){
+    
     // console.log("I am deleting",index);
 
     let notes = localStorage.getItem("notes");
@@ -76,13 +83,14 @@ search.addEventListener("input", function(){
     let noteCards = document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function(element){
         let cardTxt= element.getElementsByTagName("p")[0].innerText;
-        if(cardTxt.includes(inputVal)){
+    
+        if(cardTxt.toLowerCase().includes(inputVal)){
             element.style.display = "block";
         }
         else{
             element.style.display = "none";
         }
-        // console.log(cardTxt);
+        // console.log(cardTxt.toLowerCase());
 
     })
 })
